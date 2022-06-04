@@ -1,0 +1,24 @@
+#dmp-projects-description {
+    width: 100%;
+    height: 4em;
+    margin: 12px 0 0;
+}
+#dmp-projects-date-start-container {
+    display: flex;
+    align-items: center;
+}
+#dmp-projects-date-start-container p {
+    margin-right: 16px;
+    flex: 1;
+}
+#dmp-projects-date-start-container input {
+    width: 100%;    
+}
+
+#dmp-projects-date-start-container input.error {
+    border: 1px solid #ca0000;
+}
+
+#dmp-projects-date-start-container input:read-only{
+    opacity: .6;
+}

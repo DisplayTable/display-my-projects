@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Issues metabox.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ */
+add_action( 'add_meta_boxes', 'dmp_projects_metabox_issues' );
+
+/**
+ * Add issues metabox.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ */
+function dmp_projects_metabox_issues() {
+    $id             = DMP_PROJECTS_FIELD_ISSUES . '-box';
+    $title          = __( 'Issues', DMP_LANGUAGE ); 
+    $callback       = 'dmp_projects_metabox_issues_callback'; 
+    $screen         = DMP_PROJECTS_CPT; 
+    $context        = 'normal'; 
+    $priority       = 'high'; 
+    $callback_args  = array();
+    add_meta_box( 
+        $id, 
+        $title, 
+        $callback, 
+        $screen, 
+        $context, 
+        $priority 
+    );
+}
+
+/**
+ * Issues callback.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ * @param WP_Post $post Current post.
+ * @return string
+ */
+function dmp_projects_metabox_issues_callback( $post ) {
+    ?>
+    <p><?php _e( 'Issues', DMP_LANGUAGE ); ?></p>
+    <?php
+}

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Create CPT.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ */
+add_action( 'init', 'dmp_create_projects_custom_post_type' );
+
+/**
  * Create Projects CPT implementation.
  * 
  * @author Display Table
@@ -28,7 +37,7 @@ function dmp_create_projects_custom_post_type() {
         'label'                 => __( 'projects', DMP_LANGUAGE ),
         'description'           => __( 'Movie news and reviews', DMP_LANGUAGE ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'excerpt', 'author', 'thumbnail', 'revisions', ),
+        'supports'              => array( 'title', 'author', 'thumbnail', 'revisions', ),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -44,5 +53,5 @@ function dmp_create_projects_custom_post_type() {
         'capability_type'       => 'post',
         'show_in_rest'          => true,  
     );
-    register_post_type( DMP_SLUG . 'projects', $args );
+    register_post_type( DMP_PROJECTS_CPT, $args );
 }

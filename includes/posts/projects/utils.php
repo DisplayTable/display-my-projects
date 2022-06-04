@@ -3,8 +3,8 @@
 /**
  * Funtion to return projects taxonomy labels.
  *
- * @param String $singular_name Singular name of taxonomy. 
- * @param String $plural_name Plural name of taxonomy. 
+ * @param string $singular_name Singular name of taxonomy. 
+ * @param string $plural_name Plural name of taxonomy. 
  * @return Array
  */
 function dmp_projects_taxonomies_labels( $singular_name, $plural_name ) {
