@@ -7,7 +7,7 @@
  * @param string $plural_name Plural name of taxonomy. 
  * @return Array
  */
-function dmp_projects_taxonomies_labels( $singular_name, $plural_name ) {
+function dmp_taxonomies_labels( $singular_name, $plural_name ) {
     return array(
         "name"              => _x( "$plural_name", "taxonomy general name" ),
         "singular_name"     => _x( "$singular_name", "taxonomy singular name" ),
@@ -29,7 +29,7 @@ function dmp_projects_taxonomies_labels( $singular_name, $plural_name ) {
  * @param Array $labels Labels of taxonomy. 
  * @return Array
  */
-function dmp_projects_taxonomies_args( $labels ) {
+function dmp_taxonomies_args( $labels ) {
     return array(
         "hierarchical"      => true,
         "labels"            => $labels,

@@ -65,7 +65,10 @@ function dmp_projects_metabox_assets( $hook ) {
     wp_enqueue_style( $styles_id, DMP_PROJECTS_URL . 'assets/css/fields.css', array(), '1.0', 'all' );
     wp_enqueue_script( $scripts_id, DMP_PROJECTS_URL . 'assets/js/fields.js', array( 'jquery' ), '1.0', true );
     wp_localize_script( $scripts_id, 'assetsData', array(
-        'dateStartId'   => DMP_PROJECTS_FIELD_DATESTART,
-        'dateEndId'     => DMP_PROJECTS_FIELD_DATEEND,
+        'dateStartId'           => DMP_PROJECTS_FIELD_DATESTART,
+        'dateEndId'             => DMP_PROJECTS_FIELD_DATEEND,
+        'issuesId'              => DMP_PROJECTS_FIELD_ISSUES,
+        'issuesSelectdId'       => DMP_PROJECTS_FIELD_ISSUES_SELECTED,
+        'issuesSelectdHiddenId' => DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN
     ) );
 }

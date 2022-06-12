@@ -22,3 +22,44 @@
 #dmp-projects-date-start-container input:read-only{
     opacity: .6;
 }
+
+#dmp-projects-issues {
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+
+#dmp-projects-issues-selected-issues {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#dmp-projects-issues-selected-issues p {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: ghostwhite;
+    border: 1px solid #000;
+    border-radius: 20px;
+    min-width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#dmp-projects-issues-selected-issues p:first-child {
+    margin-left: 0;
+}
+
+#dmp-projects-issues-selected-issues p:last-child {
+    margin-right: 0;
+}
+
+#dmp-projects-issues-selected-issues p button {
+    margin-left: 5px;
+    background-color: none;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+#dmp-projects-issues-selected-issues p button:hover {
+    cursor: pointer
+}

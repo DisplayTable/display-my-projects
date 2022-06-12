@@ -37,6 +37,7 @@ define( 'DMP_REGISTER_PATH', plugin_dir_path( __FILE__ ) . 'register/' );
  * @since 0.1
  */
 define( 'DMP_PROJECTS_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/projects/' );
+define( 'DMP_ISSUES_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/issues/' );
 
 /**
  * Slug defines.
@@ -55,15 +56,29 @@ define( 'DMP_SLUG', 'dmp-');
  * @since 0.1
  */
 define( 'DMP_PROJECTS_CPT', 'dmp-projects');
-define( 'DMP_PROJECTS_TAX_CLIENTS', 'dmp-clients');
-define( 'DMP_PROJECTS_TAX_STATUS', 'dmp-status');
-define( 'DMP_PROJECTS_TAX_PRIORITIES', 'dmp-priorities');
+define( 'DMP_PROJECTS_TAX_CLIENTS', DMP_PROJECTS_CPT . '-clients');
+define( 'DMP_PROJECTS_TAX_STATUS', DMP_PROJECTS_CPT . '-status');
+define( 'DMP_PROJECTS_TAX_PRIORITIES', DMP_PROJECTS_CPT . '-priorities');
 define( 'DMP_PROJECTS_FIELD_DESCRIPTION', DMP_PROJECTS_CPT . '-description');
 define( 'DMP_PROJECTS_FIELD_DATES', DMP_PROJECTS_CPT . '-dates');
 define( 'DMP_PROJECTS_FIELD_DATESTART', DMP_PROJECTS_CPT . '-date-start');
 define( 'DMP_PROJECTS_FIELD_DATEEND', DMP_PROJECTS_CPT . '-date-end');
 define( 'DMP_PROJECTS_FIELD_DOCUMENTS', DMP_PROJECTS_CPT . '-documents');
 define( 'DMP_PROJECTS_FIELD_ISSUES', DMP_PROJECTS_CPT . '-issues');
+define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues');
+define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues-hidden');
+
+/**
+ * CPT Issues defines.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ */
+define( 'DMP_ISSUES_CPT', 'dmp-issues');
+define( 'DMP_ISSUES_TAX_STATUS', DMP_ISSUES_CPT . '-status');
+define( 'DMP_ISSUES_TAX_PRIORITIES', DMP_ISSUES_CPT . '-priorities');
+define( 'DMP_ISSUES_FIELD_DESCRIPTION', DMP_ISSUES_CPT . '-description');
 
 /**
  * Language defines.

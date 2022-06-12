@@ -1,6 +1,6 @@
 <?php
 
-require_once( __DIR__ . '/../utils.php' );
+require_once( __DIR__ . '/../../../utils/utils.php' );
 
 /**
  * Client taxonomy.
@@ -20,8 +20,8 @@ add_action( 'init',  'dmp_create_projects_client_taxonomy' );
  * @return void
  */
 function dmp_create_projects_client_taxonomy() {    
-    $labels = dmp_projects_taxonomies_labels( 'Client', 'Clients' );
-    $args   = dmp_projects_taxonomies_args( $labels );
+    $labels = dmp_taxonomies_labels( 'Client', 'Clients' );
+    $args   = dmp_taxonomies_args( $labels );
 
     register_taxonomy( DMP_PROJECTS_TAX_CLIENTS, array( DMP_PROJECTS_CPT ), $args );
 }
