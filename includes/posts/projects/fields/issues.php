@@ -44,28 +44,13 @@ function dmp_projects_metabox_issues() {
  * @return string
  */
 function dmp_projects_metabox_issues_callback( $post ) {
+    $issues = get_post_meta( $post->ID, DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN, true );
     ?>
+    <p><?php _e( 'Search for the issue in the input below. Accepted parameters are name or issue id.', DMP_LANGUAGE ); ?></p>
     <p class="meta-options">
-        <label for="<?php echo DMP_PROJECTS_FIELD_ISSUES ?>"><?php _e( 'Add issue to this project', DMP_LANGUAGE ); ?></label>
-        <select
-            id="<?php echo DMP_PROJECTS_FIELD_ISSUES ?>"
-            name="<?php echo DMP_PROJECTS_FIELD_ISSUES ?>"
-        >
-            <option value="1">Issue 1</option>
-            <option value="2">Issue 2</option>
-            <option value="3">Issue 3</option>
-            <option value="4">Issue 4</option>
-            <option value="5">Issue 5</option>
-        </select>
+        <input type="text" id="<?php echo DMP_PROJECTS_FIELD_ISSUES; ?>" name="<?php echo DMP_PROJECTS_FIELD_ISSUES; ?>" />
     </p>
-    <div id="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED ?>">
-        
-    </div>
-    <input
-        type="hidden" 
-        value="" 
-        id="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN ?>"
-        name="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN ?>"
-    />
+    <div id="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED ?>"></div>
+    <input type="hidden" value="<?php echo $issues; ?>" id="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN ?>" name="<?php echo DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN ?>" />
     <?php
 }

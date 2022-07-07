@@ -67,6 +67,7 @@ define( 'DMP_PROJECTS_FIELD_DOCUMENTS', DMP_PROJECTS_CPT . '-documents');
 define( 'DMP_PROJECTS_FIELD_ISSUES', DMP_PROJECTS_CPT . '-issues');
 define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues');
 define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues-hidden');
+define( 'DMP_PROJECTS_FIELD_AJAX_GET_ISSUES', DMP_PROJECTS_FIELD_ISSUES . '-ajax-get-issues');
 
 /**
  * CPT Issues defines.

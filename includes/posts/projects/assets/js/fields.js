@@ -27,28 +27,18 @@
         }
 
         /**
-         * Handler for issue change
-         * 
-         * @param {jQuery.Event} event 
-         */
-        const changeIssue = event => {            
-            addIssue( selectedIds, event.target.value );
-            addIssueToHidden( event.target.value );
-        }
-
-        /**
          * Helper to add issue.
          *
          * @param {Node} selectedIds - 
          * @param {String} value - El valor seleccionado.
          */
-        const addIssue = ( selectedIds, value ) => {
+         const addIssue = ( selectedIds, id, value ) => {
             const p = document.createElement('p');
             const button = document.createElement('button');
             p.textContent = value;
             button.textContent = '+';
             button.type = 'button';
-            button.dataset.id = value;
+            button.dataset.id = id;
             p.appendChild(button);
             selectedIds.appendChild(p);
         }
@@ -62,7 +52,6 @@
             const arrPreviousSelected = selectedHiddenId.value.split(',').filter( f => f )
             arrPreviousSelected.push( value )
             selectedHiddenId.value = arrPreviousSelected.join(',');
-
         }
 
         /**
@@ -78,9 +67,31 @@
             $(elToRemove).closest('p').remove();
         }
 
+        /**
+         * Jquery UI Autocomplete.
+         */
+        $( "#" + assetsData.issuesId ).autocomplete({
+            source: function( request, response ) {
+                $.get( 
+                    assetsData.url, 
+                    { action: assetsData.action, term: request.term, nonce: assetsData.nonce }, 
+                    data => { 
+                        response( JSON.parse( data ) ) 
+                    } 
+                );
+            },
+            minLength: 2,
+            select: function( event, ui ) {
+                const item = ui.item
+                addIssue( selectedIds, item.id, item.value );
+                addIssueToHidden( item.id );
+                console.log(event.target)
+            }
+        })
+
+        // BINDING EVENTS
         body.on( 'change', "#" + assetsData.dateStartId, changeStartDate )
         body.on( 'change', "#" + assetsData.dateEndId, changeEndDate )
-        body.on( 'change', "#" + assetsData.issuesId, changeIssue )
         body.on( 'click', "#" + assetsData.issuesSelectdId + ' p button', removeIssue )
     })
 })(jQuery)

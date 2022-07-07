@@ -1,5 +1,7 @@
 <?php 
 
+require_once( __DIR__ . './query.php' );
+require_once( __DIR__ . './ajax.php' );
 require_once( __DIR__ . './description.php' );
 require_once( __DIR__ . './dates.php' );
 require_once( __DIR__ . './documents.php' );
@@ -39,7 +41,8 @@ function dmp_projects_metabox_save( $post_id ) {
     $fields = [
         DMP_PROJECTS_FIELD_DESCRIPTION,
         DMP_PROJECTS_FIELD_DATESTART,
-        DMP_PROJECTS_FIELD_DATEEND
+        DMP_PROJECTS_FIELD_DATEEND,
+        DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN
     ];
     foreach ( $fields as $field ) {
         if ( array_key_exists( $field, $_POST ) ) {
@@ -61,14 +64,21 @@ function dmp_projects_metabox_assets( $hook ) {
     global $post_type;
     if( DMP_PROJECTS_CPT !== $post_type ) return;
     $styles_id  = DMP_PROJECTS_CPT . '-fields-styles';
+    $jquery_ui_style_id = DMP_PROJECTS_CPT . '-jquery-ui-styles';
+    $jquery_ui_script_id = DMP_PROJECTS_CPT . '-jquery-ui-scripts';
     $scripts_id = DMP_PROJECTS_CPT . '-fields-scripts';
-    wp_enqueue_style( $styles_id, DMP_PROJECTS_URL . 'assets/css/fields.css', array(), '1.0', 'all' );
-    wp_enqueue_script( $scripts_id, DMP_PROJECTS_URL . 'assets/js/fields.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_style( $jquery_ui_style_id, DMP_PROJECTS_URL . 'assets/css/jquery-ui.min.css', array(), '1.0', 'all' );
+    wp_enqueue_style( $styles_id, DMP_PROJECTS_URL . 'assets/css/fields.css', array( $jquery_ui_style_id ), '1.0', 'all' );
+    wp_enqueue_script( $jquery_ui_script_id, DMP_PROJECTS_URL . 'assets/js/jquery-ui.min.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script( $scripts_id, DMP_PROJECTS_URL . 'assets/js/fields.js', array( 'jquery', $jquery_ui_script_id ), '1.0', true );
     wp_localize_script( $scripts_id, 'assetsData', array(
         'dateStartId'           => DMP_PROJECTS_FIELD_DATESTART,
         'dateEndId'             => DMP_PROJECTS_FIELD_DATEEND,
         'issuesId'              => DMP_PROJECTS_FIELD_ISSUES,
         'issuesSelectdId'       => DMP_PROJECTS_FIELD_ISSUES_SELECTED,
-        'issuesSelectdHiddenId' => DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN
+        'issuesSelectdHiddenId' => DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN,
+        'url'                   => admin_url( 'admin-ajax.php' ),
+        'nonce'                 => wp_create_nonce( DMP_PROJECTS_FIELD_AJAX_GET_ISSUES ),
+        'action'                => 'get-issues'
     ) );
 }
