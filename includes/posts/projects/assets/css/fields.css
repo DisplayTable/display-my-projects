@@ -34,32 +34,25 @@
     justify-content: flex-start;
 }
 
-#dmp-projects-issues-selected-issues p {
-    margin: 0 5px;
-    padding: 10px;
-    background-color: ghostwhite;
-    border: 1px solid #000;
-    border-radius: 20px;
-    min-width: 100px;
+.dmp-projects-issue-container {
+    margin: 0 10px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
 
-#dmp-projects-issues-selected-issues p:first-child {
+.dmp-projects-issue-container:first-child {
     margin-left: 0;
 }
 
-#dmp-projects-issues-selected-issues p:last-child {
+.dmp-projects-issue-container:last-child {
     margin-right: 0;
 }
 
-#dmp-projects-issues-selected-issues p button {
+.dmp-projects-delete-issue {
+    cursor: pointer;
+    font-size: 25px;
+    transform: rotate(45deg);
+    display: inline-block;
     margin-left: 5px;
-    background-color: none;
-    border-radius: 50%;
-    border: 1px solid #000;
-}
-
-#dmp-projects-issues-selected-issues p button:hover {
-    cursor: pointer
+    color: red;
 }

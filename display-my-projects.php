@@ -36,6 +36,7 @@ define( 'DMP_REGISTER_PATH', plugin_dir_path( __FILE__ ) . 'register/' );
  * @version 0.1
  * @since 0.1
  */
+define( 'DMP_ASSETS_URL', plugin_dir_url( __FILE__ ) . 'assets/' );
 define( 'DMP_PROJECTS_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/projects/' );
 define( 'DMP_ISSUES_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/issues/' );
 
@@ -65,6 +66,8 @@ define( 'DMP_PROJECTS_FIELD_DATESTART', DMP_PROJECTS_CPT . '-date-start');
 define( 'DMP_PROJECTS_FIELD_DATEEND', DMP_PROJECTS_CPT . '-date-end');
 define( 'DMP_PROJECTS_FIELD_DOCUMENTS', DMP_PROJECTS_CPT . '-documents');
 define( 'DMP_PROJECTS_FIELD_ISSUES', DMP_PROJECTS_CPT . '-issues');
+define( 'DMP_PROJECTS_FIELD_ISSUE_CONTAINER', DMP_PROJECTS_CPT . '-issue-container');
+define( 'DMP_PROJECTS_FIELD_ISSUE_REMOVE', DMP_PROJECTS_CPT . '-delete-issue');
 define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues');
 define( 'DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN', DMP_PROJECTS_FIELD_ISSUES . '-selected-issues-hidden');
 define( 'DMP_PROJECTS_FIELD_AJAX_GET_ISSUES', DMP_PROJECTS_FIELD_ISSUES . '-ajax-get-issues');

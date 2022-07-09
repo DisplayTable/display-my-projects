@@ -32,7 +32,8 @@ function dmp_projects_ajax_get_issues() {
         return array( 
             'id'    => $post->ID, 
             'label' => $post->post_title, 
-            'value' => $post->post_title 
+            'value' => $post->post_title,
+            'url'   => get_edit_post_link( $post->ID )
         ); 
     }, $posts );
     echo json_encode( $parsed_post );

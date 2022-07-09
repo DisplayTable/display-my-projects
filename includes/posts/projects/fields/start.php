@@ -67,16 +67,30 @@ function dmp_projects_metabox_assets( $hook ) {
     $jquery_ui_style_id = DMP_PROJECTS_CPT . '-jquery-ui-styles';
     $jquery_ui_script_id = DMP_PROJECTS_CPT . '-jquery-ui-scripts';
     $scripts_id = DMP_PROJECTS_CPT . '-fields-scripts';
-    wp_enqueue_style( $jquery_ui_style_id, DMP_PROJECTS_URL . 'assets/css/jquery-ui.min.css', array(), '1.0', 'all' );
+    $current_language_code = get_bloginfo("language");
+    $datepicker_locale_path = DMP_ASSETS_PATH . 'js/jquery-ui/datepicker/i18n/datepicker-' . $current_language_code . '.js';
+    $datepicker_locale_url = DMP_ASSETS_URL . 'js/jquery-ui/datepicker/i18n/datepicker-' . $current_language_code . '.js';
+    wp_enqueue_style( $jquery_ui_style_id, DMP_ASSETS_URL . 'css/jquery-ui/jquery-ui.min.css', array(), '1.0', 'all' );
     wp_enqueue_style( $styles_id, DMP_PROJECTS_URL . 'assets/css/fields.css', array( $jquery_ui_style_id ), '1.0', 'all' );
-    wp_enqueue_script( $jquery_ui_script_id, DMP_PROJECTS_URL . 'assets/js/jquery-ui.min.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script( $jquery_ui_script_id, DMP_ASSETS_URL . 'js/jquery-ui/jquery-ui.min.js', array( 'jquery' ), '1.0', true );
     wp_enqueue_script( $scripts_id, DMP_PROJECTS_URL . 'assets/js/fields.js', array( 'jquery', $jquery_ui_script_id ), '1.0', true );
+    if( file_exists( $datepicker_locale_path ) ) {
+        wp_enqueue_script( 
+            DMP_PROJECTS_CPT . '-jquery-ui-datepicker-' . $current_language_code , 
+            $datepicker_locale_url, 
+            array( 'jquery', $jquery_ui_script_id ), 
+            '1.0', 
+            true 
+        );
+    }
     wp_localize_script( $scripts_id, 'assetsData', array(
         'dateStartId'           => DMP_PROJECTS_FIELD_DATESTART,
         'dateEndId'             => DMP_PROJECTS_FIELD_DATEEND,
         'issuesId'              => DMP_PROJECTS_FIELD_ISSUES,
         'issuesSelectdId'       => DMP_PROJECTS_FIELD_ISSUES_SELECTED,
         'issuesSelectdHiddenId' => DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN,
+        'issueContainer'        => DMP_PROJECTS_FIELD_ISSUE_CONTAINER,
+        'issueRemove'           => DMP_PROJECTS_FIELD_ISSUE_REMOVE,
         'url'                   => admin_url( 'admin-ajax.php' ),
         'nonce'                 => wp_create_nonce( DMP_PROJECTS_FIELD_AJAX_GET_ISSUES ),
         'action'                => 'get-issues'

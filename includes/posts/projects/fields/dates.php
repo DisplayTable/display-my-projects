@@ -54,7 +54,7 @@ function dmp_projects_metabox_date_callback( $post ) {
             <label for="<?php echo $date_start_id ?>"><?php _e( 'Start date', DMP_LANGUAGE ); ?></label>
             <input 
                 id="<?php echo $date_start_id ?>" 
-                type="date" 
+                type="text" 
                 name="<?php echo $date_start_id ?>" 
                 value="<?php echo $date_start_value; ?>"
             >
@@ -62,9 +62,8 @@ function dmp_projects_metabox_date_callback( $post ) {
         <p class="meta-options">
             <label for="<?php echo $date_end_id ?>"><?php _e( 'End date', DMP_LANGUAGE ); ?></label>
             <input 
-                <?php if( !$date_end_value ) echo 'readonly'; ?> 
                 id="<?php echo $date_end_id ?>" 
-                type="date" 
+                type="text" 
                 name="<?php echo $date_end_id ?>" 
                 value="<?php echo $date_end_value; ?>"
             >
