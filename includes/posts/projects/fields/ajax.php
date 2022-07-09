@@ -23,9 +23,9 @@ function dmp_projects_ajax_get_issues() {
     $args = array( 
         'post_type'     => DMP_ISSUES_CPT,
         'numberposts'   => -1,
-        'post__in '     => array( $term ),
-        'post__title'   => $term 
     );
+    if( is_numeric( $term ) ) $args[ 'include' ] = array( $term );
+    else $args[ 'post__title' ] = $term ;
     $posts = get_posts( $args );
     $parsed_post = array_map( function( $post ) { 
         return array( 
