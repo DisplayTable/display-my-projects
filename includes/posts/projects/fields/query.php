@@ -20,7 +20,7 @@ function dmp_projects_where_override( $where, $wp_query ) {
     if( !is_admin() ) return $where; // Short circuit early
     global $wpdb;
     if ( $search_term = $wp_query->get( 'post__title' ) ) {
-        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
+        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $search_term ) ) . '%\'';
     }
     return $where;
 }

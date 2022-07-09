@@ -21,8 +21,9 @@ function dmp_projects_ajax_get_issues() {
     check_ajax_referer ( DMP_PROJECTS_FIELD_AJAX_GET_ISSUES, 'nonce' );
     $term = sanitize_text_field( $_GET[ 'term' ] );
     $args = array( 
-        'post_type'     => DMP_ISSUES_CPT,
-        'numberposts'   => -1,
+        'post_type'         => DMP_ISSUES_CPT,
+        'numberposts'       => -1,
+        'suppress_filters'  => false
     );
     if( is_numeric( $term ) ) $args[ 'include' ] = array( $term );
     else $args[ 'post__title' ] = $term ;
