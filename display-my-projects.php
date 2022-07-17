@@ -25,6 +25,7 @@ defined( 'ABSPATH' ) or die();
  * @since 0.1
  */
 define( 'DMP_INCLUDE_PATH', plugin_dir_path( __FILE__ ) . 'includes/' );
+define( 'DMP_COMMON_PATH', DMP_INCLUDE_PATH . 'common/' );
 define( 'DMP_ASSETS_PATH', plugin_dir_path( __FILE__ ) . 'assets/' );
 define( 'DMP_TEMPLATE_PATH', plugin_dir_path( __FILE__ ) . 'templates/' );
 define( 'DMP_REGISTER_PATH', plugin_dir_path( __FILE__ ) . 'register/' );
@@ -37,8 +38,10 @@ define( 'DMP_REGISTER_PATH', plugin_dir_path( __FILE__ ) . 'register/' );
  * @since 0.1
  */
 define( 'DMP_ASSETS_URL', plugin_dir_url( __FILE__ ) . 'assets/' );
-define( 'DMP_PROJECTS_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/projects/' );
-define( 'DMP_ISSUES_URL', plugin_dir_url( __FILE__ ) . 'includes/posts/issues/' );
+define( 'DMP_INCLUDES_URL', plugin_dir_url( __FILE__ ) . 'includes/' );
+define( 'DMP_COMMON_URL', DMP_INCLUDES_URL . 'common/' );
+define( 'DMP_PROJECTS_URL', DMP_INCLUDES_URL . 'posts/projects/' );
+define( 'DMP_ISSUES_URL', plugin_dir_url( __FILE__ ) . 'posts/issues/' );
 
 /**
  * Slug defines.
@@ -92,6 +95,21 @@ define( 'DMP_ISSUES_FIELD_DESCRIPTION', DMP_ISSUES_CPT . '-description');
  * @since 0.1
  */
 define( 'DMP_LANGUAGE', 'displaymyprojects');
+
+/**
+ * Common functions defines.
+ * 
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ */
+define( 'DMP_COMMON', 'dmp-common' );
+define( 'DMP_COMMON_UPLOADER', DMP_COMMON . '-uploader' );
+define( 'DMP_COMMON_UPLOADER_OPEN_DIALOG', DMP_COMMON_UPLOADER . '-open' );
+define( 'DMP_COMMON_UPLOADER_FILES', DMP_COMMON_UPLOADER . '-files' );
+define( 'DMP_COMMON_UPLOADER_FILES_HIDDEN', DMP_COMMON_UPLOADER . '-files-hidden' );
+define( 'DMP_UPLOADER_PATH', DMP_COMMON_PATH . 'uploader/' );
+define( 'DMP_UPLOADER_URL', DMP_COMMON_URL . 'uploader/' );
 
 /**
  * Start plugin.

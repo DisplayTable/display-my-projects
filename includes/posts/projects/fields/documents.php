@@ -1,5 +1,7 @@
 <?php
 
+require_once( DMP_UPLOADER_PATH . 'uploader.php' );
+
 /**
  * Documents metabox.
  * 
@@ -45,6 +47,18 @@ function dmp_projects_metabox_documents() {
  */
 function dmp_projects_metabox_documents_callback( $post ) {
     ?>
-    <p><?php _e( 'Documents', DMP_LANGUAGE ); ?></p>
+    <p><?php _e( '', DMP_LANGUAGE ); ?></p>
+    <button type="button" id="<?php echo DMP_COMMON_UPLOADER_OPEN_DIALOG; ?>" class="button button-primary button-large">
+        <?php _e( 'Upload files', DMP_LANGUAGE ); ?>
+    </button>
+    <input 
+        type="hidden" 
+        value="<?php echo $issues; ?>" 
+        id="<?php echo DMP_COMMON_UPLOADER_FILES_HIDDEN ?>" 
+        name="<?php echo DMP_COMMON_UPLOADER_FILES_HIDDEN ?>" 
+    />
+    <div id="<?php echo DMP_COMMON_UPLOADER_FILES; ?>">
+        <p>FILES</p>
+    </div>
     <?php
 }
