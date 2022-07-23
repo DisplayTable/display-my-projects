@@ -46,19 +46,5 @@ function dmp_projects_metabox_documents() {
  * @return string
  */
 function dmp_projects_metabox_documents_callback( $post ) {
-    ?>
-    <p><?php _e( '', DMP_LANGUAGE ); ?></p>
-    <button type="button" id="<?php echo DMP_COMMON_UPLOADER_OPEN_DIALOG; ?>" class="button button-primary button-large">
-        <?php _e( 'Upload files', DMP_LANGUAGE ); ?>
-    </button>
-    <input 
-        type="hidden" 
-        value="<?php echo $issues; ?>" 
-        id="<?php echo DMP_COMMON_UPLOADER_FILES_HIDDEN ?>" 
-        name="<?php echo DMP_COMMON_UPLOADER_FILES_HIDDEN ?>" 
-    />
-    <div id="<?php echo DMP_COMMON_UPLOADER_FILES; ?>">
-        <p>FILES</p>
-    </div>
-    <?php
+    dmp_common_uploader_render_callback( $post );
 }

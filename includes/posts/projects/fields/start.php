@@ -42,7 +42,8 @@ function dmp_projects_metabox_save( $post_id ) {
         DMP_PROJECTS_FIELD_DESCRIPTION,
         DMP_PROJECTS_FIELD_DATESTART,
         DMP_PROJECTS_FIELD_DATEEND,
-        DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN
+        DMP_PROJECTS_FIELD_ISSUES_SELECTED_HIDDEN,
+        DMP_COMMON_UPLOADER_FILES_HIDDEN
     ];
     foreach ( $fields as $field ) {
         if ( array_key_exists( $field, $_POST ) ) {

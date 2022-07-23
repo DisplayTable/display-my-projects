@@ -108,6 +108,7 @@ define( 'DMP_COMMON_UPLOADER', DMP_COMMON . '-uploader' );
 define( 'DMP_COMMON_UPLOADER_OPEN_DIALOG', DMP_COMMON_UPLOADER . '-open' );
 define( 'DMP_COMMON_UPLOADER_FILES', DMP_COMMON_UPLOADER . '-files' );
 define( 'DMP_COMMON_UPLOADER_FILES_HIDDEN', DMP_COMMON_UPLOADER . '-files-hidden' );
+define( 'DMP_COMMON_UPLOADER_FILE_ITEM', DMP_COMMON_UPLOADER . '-file-item' );
 define( 'DMP_UPLOADER_PATH', DMP_COMMON_PATH . 'uploader/' );
 define( 'DMP_UPLOADER_URL', DMP_COMMON_URL . 'uploader/' );
 

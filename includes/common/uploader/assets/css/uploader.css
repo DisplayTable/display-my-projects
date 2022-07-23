@@ -1,0 +1,65 @@
+#dmp-common-uploader-files {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 0 0;
+}
+.dmp-common-uploader-file-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(210, 210, 210, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px 5px;
+    cursor: pointer;
+    transition: opacity .5s;
+    object-fit: cover;
+    overflow: hidden;
+}
+.dmp-common-uploader-file-item:first-child {
+    margin-left: 0;
+}
+.dmp-common-uploader-file-item:last-child {
+    margin-right: 0;
+}
+.dmp-common-uploader-file-item:hover {
+    background-color: rgba(210, 210, 210, .6);
+}
+.dmp-common-uploader-file-item button {
+    font-size: 32px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background-color: rgba(255, 0, 0, 1);
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity .5s;
+}
+.dmp-common-uploader-file-item button:hover {
+    background-color: rgba(255, 0, 0, .6);
+}
+.dmp-common-uploader-file-item button span {
+    font-size: 25px;
+    transform: rotate(45deg);
+    display: inline-block;
+    color: white;
+    position: absolute;
+    top: -2px;
+    left: 9px;
+}
+.dmp-common-uploader-file-item .file {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
