@@ -35,6 +35,15 @@ function dmp_common_uploader_assets( $hook ) {
     ) );
 }
 
+/**
+ * Callback function to render upload files and button.
+ *
+ * @author Display Table
+ * @version 0.1
+ * @since 0.1
+ * @param WP_Post $post Current post.
+ * @return void
+ */
 function dmp_common_uploader_render_callback( $post ) {
     $files = get_post_meta( $post->ID, DMP_COMMON_UPLOADER_FILES_HIDDEN, true );
     $arr_files = $files ? explode( ',', $files ) : [];
